@@ -8,7 +8,7 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ('id', 'name', 'slug')
 
-
+        
 class BookSerializer(serializers.ModelSerializer):
     tag = TagSerializer(read_only=True, many=True)
 

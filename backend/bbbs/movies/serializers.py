@@ -9,7 +9,7 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ('id', 'name', 'slug')
 
-
+        
 class MovieSerializer(serializers.ModelSerializer):
     tag = TagSerializer(read_only=True, many=True)
 

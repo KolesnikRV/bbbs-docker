@@ -35,7 +35,7 @@ class BookAdmin(admin.ModelAdmin):
 
     get_tags.short_description = 'Теги'
 
-
+    
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug')
     search_fields = ('name', 'slug')

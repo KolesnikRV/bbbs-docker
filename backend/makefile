@@ -11,8 +11,7 @@ su:
 prepare:
 	python manage.py makemigrations --noinput
 	python manage.py migrate --noinput
-
 	python manage.py collectstatic --noinput
-
+	make su
 prepare_in_docker:
 	docker-compose exec backend make prepare
