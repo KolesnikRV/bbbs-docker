@@ -1,6 +1,6 @@
 FROM node:13.12.0-alpine as build
 
-WORKDIR /app/frontend
+WORKDIR /frontend
 COPY ./frontend/package.json ./
 COPY ./frontend/package-lock.json ./
 RUN npm ci --silent

@@ -1,4 +1,4 @@
-!#/bin/user/env bash
+#!/bin/bash
 
 until cd /backend
 do
