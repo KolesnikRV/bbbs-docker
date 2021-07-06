@@ -2,6 +2,7 @@
   "name": "react-bbbs",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@lottiefiles/lottie-player": "^1.0.4",
     "@testing-library/jest-dom": "^5.12.0",
