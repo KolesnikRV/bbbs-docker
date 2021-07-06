@@ -22,7 +22,7 @@ services:
       - ./backend/.env
 
   frontend:
-    build: ./react-bbbs/
+    build: ./frontend/
     restart: always
     ports:
       - "3000:3000"

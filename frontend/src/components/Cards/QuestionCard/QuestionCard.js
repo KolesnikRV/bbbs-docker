@@ -7,7 +7,6 @@ import Button from '../../UI/Button/Button';
 import './QuestionCard.css';
 
 const QuestionCard = ({ anchor, title, tags, answerText, place }) => {
-  const tagsText = tags.map((tag) => tag.name);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
 
   const handleToggleAnswer = () => setIsAnswerVisible(!isAnswerVisible);
@@ -19,8 +18,8 @@ const QuestionCard = ({ anchor, title, tags, answerText, place }) => {
           <Link to={`/questions/#${anchor}`} className="mainlink" />
           <h3 className="question__title">{title}</h3>
           <div className="question__tags">
-            {tagsText.map((tagText) => (
-              <Tag key={tagText} modifier="tag_theme_white" tagText={tagText} />
+            {tags.map((tag) => (
+              <Tag key={tag.id} modifier="tag_theme_white" tagText={tag.name} />
             ))}
           </div>
         </li>
@@ -32,8 +31,8 @@ const QuestionCard = ({ anchor, title, tags, answerText, place }) => {
               {title}
             </h3>
             <div className="question__tags">
-              {tagsText.map((tagText) => (
-                <Tag key={tagText} modifier="tag_theme_white" tagText={tagText} />
+              {tags.map((tag) => (
+                <Tag key={tag.id} modifier="tag_theme_white" tagText={tag.name} />
               ))}
             </div>
             {isAnswerVisible && <p className="question__answer">{answerText}</p>}
@@ -51,7 +50,7 @@ const QuestionCard = ({ anchor, title, tags, answerText, place }) => {
 QuestionCard.propTypes = {
   anchor: PropTypes.string,
   title: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.any).isRequired,
+  tags: PropTypes.arrayOf(PropTypes.any),
   answerText: PropTypes.string,
   place: PropTypes.string.isRequired,
 };
@@ -59,6 +58,7 @@ QuestionCard.propTypes = {
 QuestionCard.defaultProps = {
   anchor: '',
   answerText: '',
+  tags: [],
 };
 
 export default QuestionCard;

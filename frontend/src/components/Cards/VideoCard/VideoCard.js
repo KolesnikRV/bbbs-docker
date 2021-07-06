@@ -5,9 +5,6 @@ import youtubeLinkParser from '../../../utils/youtubeLinkParser';
 import './VideoCard.css';
 
 const VideoCard = ({ type, tags, title, info, link, handleVideoClick, isMovesPage }) => {
-  let tagsText;
-  if (tags) tagsText = tags.map((tag) => tag.name);
-
   const clickHandler = () => {
     handleVideoClick(link, title, info);
   };
@@ -33,10 +30,7 @@ const VideoCard = ({ type, tags, title, info, link, handleVideoClick, isMovesPag
           aria-hidden="true"
         />
         <div className="movie__tags">
-          {type === 'movie' &&
-            tagsText.map((tagText) => (
-              <Tag tagText={tagText} key={`${tagText}_${Math.random()}`} />
-            ))}
+          {type === 'movie' && tags.map((tag) => <Tag tagText={tag.name} key={tag.id} />)}
         </div>
       </div>
       <div className="movie__descriprion">

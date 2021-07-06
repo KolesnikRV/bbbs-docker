@@ -8,6 +8,7 @@ import { apiURL, TEST_MODE } from '../config/config';
 
 axios.defaults.headers.get['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.patch['Content-Type'] = 'application/json';
 
 export default class Api {
   static setAuthHeader(authHeader) {
@@ -84,6 +85,12 @@ export default class Api {
 
   static getQuestions() {
     return axios.get(`${apiURL}/questions/`).then(Api._handleApiResult.bind(null, 'getQuestions'));
+  }
+
+  static getQuestionsTags() {
+    return axios
+      .get(`${apiURL}/questions/tags/`)
+      .then(Api._handleApiResult.bind(null, 'getQuestionsTags'));
   }
 
   static getMaterials() {

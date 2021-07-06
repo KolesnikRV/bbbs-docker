@@ -19,17 +19,17 @@ export default function ScrollContainer({
 
     return '';
   };
-
+  console.log(list);
   return (
     <div className={`${sectionClass} ${sectionSubClass}`}>
       {list.map((item) => (
         <Button
           className={`button button_color_black button_place_scroll ${setActiveClass(item)}`}
           type="button"
-          key={item}
+          key={item.id}
           onClick={() => onClick(item)}
         >
-          {item}
+          {item.name}
         </Button>
       ))}
     </div>
