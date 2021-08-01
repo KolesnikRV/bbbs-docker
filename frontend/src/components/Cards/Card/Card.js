@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './Card.css';
 import PropTypes from 'prop-types';
 import Tag from '../../UI/Tag/Tag';
+import { baseUrl } from '../../../config/config';
 
 const Card = ({ type, size, color, data }) => (
   <section className="event-soon-card">
@@ -15,8 +16,8 @@ const Card = ({ type, size, color, data }) => (
                 : 'profile-grid__column_size_thin event-soon__description_size_small'
             }`}
           >
-            {type === 'place' && data.category && (
-              <Tag modifier="tag_place_event" tagText={data.category} />
+            {type === 'place' && data.chosen && (
+              <Tag modifier="tag_place_event" tagText="Выбор наставника" />
             )}
             <div
               className={`event-soon__caption ${
@@ -36,7 +37,7 @@ const Card = ({ type, size, color, data }) => (
             </div>
             {data.chosen && size === 'big' && (
               <Link className="event-soon__img" to="/where-to-go">
-                <img src={data.imageUrl} className="event-soon__img" alt="Локация" />
+                <img src={`${baseUrl}${data.imageUrl}`} className="event-soon__img" alt="Локация" />
               </Link>
             )}
             {data.link && (
@@ -65,8 +66,7 @@ const Card = ({ type, size, color, data }) => (
                     : 'event-article__title_size_small'
                 }`}
               >
-                {data.sex && `${data.sex}. `}
-                {data.age && `${data.age} лет. `}
+                {data.info}
                 {data.type}
               </div>
               <p
@@ -74,7 +74,7 @@ const Card = ({ type, size, color, data }) => (
                   size === 'big' ? 'event-article__paragraph_size_big' : ''
                 }`}
               >
-                {data.text}
+                {data.description}
               </p>
             </article>
           </div>
