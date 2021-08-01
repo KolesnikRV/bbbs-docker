@@ -31,9 +31,16 @@ class Article(models.Model):
         null=True,
         blank=True,
     )
-    text = models.TextField(
+    description = models.TextField(
         verbose_name='Описание',
-        help_text='Укажите, полное описание',
+        help_text='Укажите полное описание',
+    )
+    imageUrl = models.ImageField(
+        verbose_name="Фото",
+        help_text="Добавить фото",
+        null=True,
+        blank=True,
+        upload_to="articles/",
     )
 
     class Meta:
