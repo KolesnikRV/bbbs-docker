@@ -14,11 +14,11 @@
 - Postgres
 
 # Пройденные этапы / готовый функционал
-[Этап 1 Базовые АПИ](backend/docs/backend-step1.md)
-[Этап 2 Продолжаем пилить АПИ](backend/docs/backend-step2.md)
-[Этап 3 Дорабатываем АПИ](backend/docs/backend-step3.md)
-[Возможности администрирования](backend/docs/admin.md )
-[Календарь](backend/docs/calendar.md )
+- [Этап 1 Базовые АПИ](backend/docs/backend-step1.md)
+- [Этап 2 Продолжаем пилить АПИ](backend/docs/backend-step2.md)
+- [Этап 3 Дорабатываем АПИ](backend/docs/backend-step3.md)
+- [Возможности администрирования](backend/docs/admin.md )
+- [Календарь](backend/docs/calendar.md )
 
 # Инструкции по запуску
 ## Сборка и запуск контейнеров
