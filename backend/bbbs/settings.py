@@ -125,7 +125,6 @@ STATIC_ROOT = BASE_DIR.joinpath('django_static')
 MEDIA_URL = '/django_media/'
 MEDIA_ROOT = BASE_DIR.joinpath('django_media')
 
-# Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -1,16 +1,3 @@
-'''
-video:  {
-    id: 0,
-    imageUrl: 'https://',
-    title: ‘string,
-    info: ‘str’ing,
-    link: 'https://www.youtube',
-    tag: {
-      name: ‘string,
-      id: 0,
-    }
-'''
-
 from django.db import models
 
 
@@ -51,7 +38,6 @@ class Video(models.Model):
         Tag,
         verbose_name="Тег",
     )
-    # если Youtube, то image автоматически вставляется
     imageUrl = models.ImageField(
         verbose_name="Фото",
         help_text="Добавить фото",
@@ -70,6 +56,6 @@ class Video(models.Model):
 
     def list_tags(self):
         return self.tag.values_list('name', flat=True)
-        
+
     def __str__(self):
         return self.title

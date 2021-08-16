@@ -9,6 +9,3 @@ def city_name_validator(value):
         regex=r'^[-а-яА-Я\s]+$',
         message='Название города должно содержать только русские буквы.'
     )(value)
-    # if models.City.objects.filter(name__iregex=value):
-    #     message = 'Такой город уже существует!'
-    #     raise ValidationError(message)

@@ -1,12 +1,3 @@
-'''
-materials: {
-    title: 'string',
-    text: 'string',
-    imageUrl: 'https:/',
-    id: 0,
-}
-'''
-
 from django.db import models
 
 

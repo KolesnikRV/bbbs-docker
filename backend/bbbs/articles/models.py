@@ -1,13 +1,3 @@
-'''
-article: {
-    title: ‘string',
-    author: ‘string,
-    link: 'https://',
-    text: ‘string,
-    id: 0,
-  }
-'''
-
 from django.db import models
 
 

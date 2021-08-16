@@ -10,3 +10,5 @@ RUN pip install -r requirements.txt && pip install django-cors-headers
 
 COPY ./docker/ ./docker/
 COPY ./backend/ ./
+
+CMD [ "/bin/bash", "./wsgi-entrypoint.sh" ]

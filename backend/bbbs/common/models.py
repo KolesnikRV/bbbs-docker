@@ -14,15 +14,10 @@ class City(models.Model):
         verbose_name='Имя',
         help_text='Введите название города',
         max_length=30,
-        # Проверяем, что в названии города только русские буквы.
         validators=[city_name_validator],
-        # Полагаю, что в нашем случае двух городов с одним названием - нет.
         unique=True
     )
     is_primary = models.BooleanField(
-        # Возможно стоит дать другое название,но я так понял,
-        # что это города выше черты см. ссылку
-        # https://www.figma.com/file/11gCLSDOYlvkbuI3FU36Up/BBBS-for-students?node-id=1243%3A195
         verbose_name='Главный',
         help_text='Укажите главный ли город',
         default=False
@@ -34,7 +29,6 @@ class City(models.Model):
     class Meta:
         verbose_name = 'Город'
         verbose_name_plural = "Города"
-        # Сначала главные города, потом по алфавиту остальные
         ordering = ('-is_primary', 'name')
 
 
@@ -70,7 +64,6 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Профиль пользователя'
         verbose_name_plural = 'Профили'
-        # Сортируем по имени пользователя
         ordering = ('user__username',)
 
     @property
@@ -108,7 +101,6 @@ def change_user_profile_role(sender, **kwargs):
     all_perms_profile = Permission.objects.filter(codename__endswith='profile')
     all_perms_user = Permission.objects.filter(codename__endswith='user')
 
-    # полные разрешения на Event, City, Profile, User
     if instance.role == Profile.PermissionChoice.ADMIN:
         user.user_permissions.clear()
         user.user_permissions.add(*all_perms_event)
@@ -136,14 +128,3 @@ def change_user_profile_role(sender, **kwargs):
         user.user_permissions.clear()
         user.is_staff = False
         user.save()
-
-'''
-Отключил из-за переноса функционала создания
-Profile в момент создания пользователя (admin inline)
-'''
-# @receiver(post_save, sender=User)
-# def create_profile(sender, **kwargs):
-#     instance = kwargs.get('instance')
-#     if kwargs.get('created'):
-#         instance.is_stuff = False
-#         Profile.objects.create(user=instance)
